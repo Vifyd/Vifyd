@@ -1,0 +1,17 @@
+name: Chromatic
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+
+jobs:
+  chromatic-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npx chromatic --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN }}

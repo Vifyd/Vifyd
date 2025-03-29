@@ -1,0 +1,40 @@
+# ✅ Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ✅ Build
+dist/
+build/
+storybook-static/
+
+# ✅ Env
+.env
+.env.*.local
+.env.local
+.env.production.local
+.env.development.local
+
+# ✅ TypeScript
+*.tsbuildinfo
+
+# ✅ VSCode / macOS
+.vscode/
+.DS_Store
+
+# ✅ Chromatic (캐시 등)
+.chromatic/
+
+# ✅ Logs
+*.log
+
+# ✅ Optional IDE configs
+.idea/
+*.sw?
+
+# ✅ Lockfile (선택, 팀 기준에 따라)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
