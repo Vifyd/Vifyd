@@ -1,4 +1,3 @@
-// src/components/Button/Button.stories.tsx
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
@@ -21,13 +20,6 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     children: 'Secondary Button',
-    variant: 'secondary',
-  },
-};
-
-export const Test: Story = {
-  args: {
-    children: 'Test',
     variant: 'secondary',
   },
 };
