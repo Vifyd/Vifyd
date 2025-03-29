@@ -24,3 +24,10 @@ export const Secondary: Story = {
     variant: 'secondary',
   },
 };
+
+export const Test: Story = {
+  args: {
+    children: 'Test',
+    variant: 'secondary',
+  },
+};
