@@ -7,7 +7,7 @@ const meta: Meta<typeof Input> = {
   component: Input,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
+    inputSize: {
       control: 'select',
       options: ['xs', 'sm', 'md', 'lg', 'xl'],
     },
@@ -17,15 +17,18 @@ const meta: Meta<typeof Input> = {
     placeholder: {
       control: 'text',
     },
+    disabled: {
+      control: 'boolean',
+    },
   },
 };
 
 export default meta;
 type Story = StoryObj<InputProps>;
 
-export const Primary: Story = {
+export const InputTest: Story = {
   args: {
-    variant: 'md',
+    inputSize: 'md',
     placeholder: '입력해 주세요',
     error: false,
   },

@@ -2,20 +2,21 @@ import styled from 'styled-components';
 import type { InputHTMLAttributes } from 'react';
 
 export type InputProps = {
-  variant?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  inputSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  readOnly?: boolean;
   error?: boolean;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const StyledInput = styled.input<Pick<InputProps, 'variant' | 'error'>>`
+const StyledInput = styled.input<InputProps>`
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  font-weight: 600;
-  color: white;
-  background-color: ${({ error }) => (error ? '#ff4d4f' : '#333')};
+  color: #000;
+  border: ${({ error }) => (error ? '1px solid #ff0000' : '1px solid #ccc')};
+  background-color: ${({ disabled }) => (disabled ? '#f0f0f0' : '#fff')};
 
-  ${({ variant }) => {
-    switch (variant) {
+  ${({ inputSize = 'md' }) => {
+    switch (inputSize) {
       case 'xs':
         return 'font-size: 12px;';
       case 'sm':
@@ -30,8 +31,19 @@ const StyledInput = styled.input<Pick<InputProps, 'variant' | 'error'>>`
         return '';
     }
   }}
+
+  &:hover {
+    border-color: ${({ error, disabled }) => (disabled ? '#ccc' : error ? '#ff0000' : '#999')}} 
+  }
+
+  &:focus {
+    outline: none;
+    border-color: ${({ error }) => (error ? '#ff0000' : '#007bff')}} 
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  }
+ 
 `;
 
-export const Input = (props: InputProps) => {
-  return <StyledInput {...props} />;
+export const Input = ({ ...rest }: InputProps) => {
+  return <StyledInput {...rest} />;
 };
