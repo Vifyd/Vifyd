@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TextField } from './TextField';
-import type { TextFieldProps } from './TextField';
+import { WrapperInput } from './WrapperInput';
+import type { WrapperInputProps } from './WrapperInput';
 import { ReactNode } from 'react';
 
-const meta: Meta<typeof TextField> = {
-  title: 'Components/TextField',
-  component: TextField,
+const meta: Meta<WrapperInputProps> = {
+  title: 'Components/WrapperInput',
+  component: WrapperInput,
   tags: ['autodocs'],
   argTypes: {
     Wrapper: {
@@ -22,6 +22,9 @@ const meta: Meta<typeof TextField> = {
     error: {
       control: 'boolean',
     },
+    placeholder: {
+      control: 'text',
+    },
     disabled: {
       control: 'boolean',
     },
@@ -29,10 +32,12 @@ const meta: Meta<typeof TextField> = {
 };
 
 export default meta;
-type Story = StoryObj<TextFieldProps>;
+type Story = StoryObj<WrapperInputProps>;
 
-export const Primary: Story = {
+export const WrapperInputTest: Story = {
   args: {
-    error: false,
+    placeholder: '입력해 주세요',
   },
 };
+
+<WrapperInput Wrapper={({ children }) => <div>{children}</div>} />;

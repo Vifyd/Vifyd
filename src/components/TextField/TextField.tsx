@@ -1,21 +1,31 @@
 import styled from 'styled-components';
-import type { InputHTMLAttributes } from 'react';
+import type { ElementType, ReactNode } from 'react';
+import { InputProps } from '../Input/Input';
+import { WrapperInput, WrapperInputProps } from '../Input/WrapperInput/WrapperInput';
 
 export type TextFieldProps = {
-  variant?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   error?: boolean;
-} & InputHTMLAttributes<HTMLInputElement>;
+  inputProps?: InputProps;
+  slots?: {
+    left?: ReactNode;
+    right?: ReactNode;
+  };
+  Wrapper?: WrapperInputProps['Wrapper'];
+  readOnly?: boolean;
+  disabled?: boolean;
+};
 
-const StyledTextField = styled.input<Pick<TextFieldProps, 'variant' | 'error'>>`
-  padding: 8px 16px;
+const StyledTextField = styled.div<TextFieldProps>`
+  width: fit-content;
   border: none;
   border-radius: 8px;
-  font-weight: 600;
-  color: white;
-  background-color: ${({ error }) => (error ? '#ff4d4f' : '#333')};
+  color: #000;
+  border: ${({ error, theme }) => (error ? `1px solid ${theme.colors.error}` : `1px solid ${theme.colors.border}`)};
+  background-color: ${({ disabled }) => (disabled ? '#f0f0f0' : '#fff')};
 
-  ${({ variant }) => {
-    switch (variant) {
+  ${({ size = 'md' }) => {
+    switch (size) {
       case 'xs':
         return 'font-size: 12px;';
       case 'sm':
@@ -30,8 +40,34 @@ const StyledTextField = styled.input<Pick<TextFieldProps, 'variant' | 'error'>>`
         return '';
     }
   }}
+
+  &:hover {
+    border-color: ${({ error, disabled, theme }) =>
+      disabled ? theme.colors.border : error ? theme.colors.error : '#999'}} 
+  }
+
+  &:focus {
+    outline: none;
+    border-color: ${({ error }) => (error ? '#ff0000' : '#007bff')}} 
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  }
+ 
 `;
 
-export const TextField = (props: TextFieldProps) => {
-  return <StyledTextField {...props} />;
+export const TextField = ({ ...rest }: TextFieldProps) => {
+  const { disabled, slots, Wrapper, inputProps, error, readOnly } = rest;
+  const nestedInputProps = {
+    disabled,
+    readOnly,
+    error,
+    ...inputProps,
+  };
+
+  return (
+    <StyledTextField {...rest}>
+      {slots?.left}
+      <WrapperInput Wrapper={Wrapper} {...nestedInputProps} />
+      {slots?.right}
+    </StyledTextField>
+  );
 };

@@ -10,10 +10,10 @@ export type InputProps = {
 const StyledInput = styled.input<InputProps>`
   padding: 8px 16px;
   border: none;
+  outline: none;
   border-radius: 8px;
   color: #000;
-  border: ${({ error }) => (error ? '1px solid #ff0000' : '1px solid #ccc')};
-  background-color: ${({ disabled }) => (disabled ? '#f0f0f0' : '#fff')};
+  background-color: ${({ disabled }) => (disabled ? '#f0f0f0' : 'transparent')};
 
   ${({ inputSize = 'md' }) => {
     switch (inputSize) {
@@ -31,17 +31,6 @@ const StyledInput = styled.input<InputProps>`
         return '';
     }
   }}
-
-  &:hover {
-    border-color: ${({ error, disabled }) => (disabled ? '#ccc' : error ? '#ff0000' : '#999')}} 
-  }
-
-  &:focus {
-    outline: none;
-    border-color: ${({ error }) => (error ? '#ff0000' : '#007bff')}} 
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
-  }
- 
 `;
 
 export const Input = ({ ...rest }: InputProps) => {

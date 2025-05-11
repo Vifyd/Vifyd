@@ -6,6 +6,9 @@ export const theme = {
     black: '#000000',
     gray100: '#F3F4F6',
     gray900: '#111827',
+    border: `#ccc`,
+    error: '#ff0000',
+    errorLight: '#ffcccc',
   },
   spacing: {
     xs: '4px',
