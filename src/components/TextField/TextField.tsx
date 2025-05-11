@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import type { ElementType, ReactNode } from 'react';
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
 import { InputProps } from '../Input/Input';
 import { WrapperInput, WrapperInputProps } from '../Input/WrapperInput/WrapperInput';
 
@@ -14,7 +14,7 @@ export type TextFieldProps = {
   Wrapper?: WrapperInputProps['Wrapper'];
   readOnly?: boolean;
   disabled?: boolean;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
 const StyledTextField = styled.div<TextFieldProps>`
   width: fit-content;
