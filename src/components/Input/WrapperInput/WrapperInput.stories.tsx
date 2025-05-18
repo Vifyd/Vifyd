@@ -39,5 +39,3 @@ export const WrapperInputTest: Story = {
     placeholder: '입력해 주세요',
   },
 };
-
-<WrapperInput Wrapper={({ children }) => <div>{children}</div>} />;
