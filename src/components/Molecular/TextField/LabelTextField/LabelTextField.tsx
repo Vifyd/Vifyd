@@ -4,6 +4,11 @@ import {
   TextFieldProps,
   TextField,
 } from '@/components/Molecular/TextField/TextField/TextField';
+import { InputLabel, InputLabelProps } from '../../Input/InputLabel/InputLabel';
+import {
+  IconHelperText,
+  IconHelperTextProps,
+} from '../../Text/IconHelperText/IconHelperText';
 
 export type LabelTextFieldProps = {
   label?: string;
@@ -11,6 +16,8 @@ export type LabelTextFieldProps = {
   readOnly?: boolean;
   disabled?: boolean;
   textFieldProps?: TextFieldProps;
+  inputLabelProps?: InputLabelProps;
+  iconHelperTextProps?: IconHelperTextProps;
   slots?: {
     label?: ReactNode;
     helperText?: ReactNode;
@@ -26,6 +33,8 @@ export const LabelTextField = ({
   disabled,
   textFieldProps,
   slots,
+  inputLabelProps,
+  iconHelperTextProps,
   ...rest
 }: LabelTextFieldProps) => {
   const nestedTextFieldProps = {
@@ -36,9 +45,11 @@ export const LabelTextField = ({
 
   return (
     <StyledLabelTextField {...rest}>
-      {slots?.label ?? (label && <div>{label}</div>)}
+      {slots?.label ??
+        (label && <InputLabel {...inputLabelProps} label={label} />)}
       <TextField {...nestedTextFieldProps} />
-      {slots?.helperText ?? (helperText && <div>{helperText}</div>)}
+      {slots?.helperText ??
+        (helperText && <IconHelperText {...iconHelperTextProps} />)}
     </StyledLabelTextField>
   );
 };

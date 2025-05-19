@@ -11,6 +11,7 @@ export type InputLabelProps = {
     right?: ReactNode;
   };
   label: string;
+  textContainerProps?: HTMLAttributes<HTMLDivElement>;
   labelTextProps?: LabelTextProps;
   required?: boolean;
   disabled?: boolean;
@@ -34,11 +35,12 @@ export const InputLabel = ({
   slot,
   label,
   labelTextProps,
+  textContainerProps,
   ...rest
 }: InputLabelProps) => {
   return (
     <StyledInputLabel {...rest}>
-      <StyledTextContainer>
+      <StyledTextContainer {...textContainerProps}>
         <LabelText {...labelTextProps}>{label}</LabelText>
         {required && <Asterisk />}
       </StyledTextContainer>

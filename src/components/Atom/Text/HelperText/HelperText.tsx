@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { HTMLAttributes } from 'react';
+import { BaseTextProps } from '../types';
 
-export type HelperTextProps = HTMLAttributes<HTMLSpanElement>;
+export type HelperTextProps = BaseTextProps;
 
-const StyledHelperText = styled.span``;
+const StyledHelperText = styled.p``;
 
 export const HelperText = ({ ...rest }: HelperTextProps) => {
   return <StyledHelperText {...rest}></StyledHelperText>;

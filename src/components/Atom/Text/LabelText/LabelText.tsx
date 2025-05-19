@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { HTMLAttributes } from 'react';
+import { BaseTextProps } from '../types';
 
-export type LabelTextProps = HTMLAttributes<HTMLSpanElement>;
+export type LabelTextProps = BaseTextProps;
 
-const StyledLabelText = styled.span``;
+const StyledLabelText = styled.p``;
 
 export const LabelText = ({ ...rest }: LabelTextProps) => {
   return <StyledLabelText {...rest}></StyledLabelText>;
