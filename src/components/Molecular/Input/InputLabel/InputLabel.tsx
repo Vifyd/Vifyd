@@ -14,7 +14,6 @@ export type InputLabelProps = {
   textContainerProps?: HTMLAttributes<HTMLDivElement>;
   labelTextProps?: LabelTextProps;
   required?: boolean;
-  disabled?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 const StyledInputLabel = styled.div`
@@ -31,7 +30,6 @@ const StyledTextContainer = styled.div`
 
 export const InputLabel = ({
   required,
-  disabled,
   slot,
   label,
   labelTextProps,

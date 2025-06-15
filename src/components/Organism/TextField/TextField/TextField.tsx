@@ -7,7 +7,7 @@ import {
 } from '@/components/Molecular/Input/WrapperInput/WrapperInput';
 
 export type TextFieldProps = {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'md' | 'lg';
   error?: boolean;
   inputProps?: InputProps;
   slots?: {
@@ -32,16 +32,10 @@ const StyledTextField = styled.div<TextFieldProps>`
 
   ${({ size = 'md' }) => {
     switch (size) {
-      case 'xs':
-        return 'font-size: 12px;';
-      case 'sm':
-        return 'font-size: 14px;';
       case 'md':
         return 'font-size: 16px;';
       case 'lg':
         return 'font-size: 18px;';
-      case 'xl':
-        return 'font-size: 20px;';
       default:
         return '';
     }

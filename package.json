@@ -1,10 +1,11 @@
 {
-  "name": "@yourteam/design-system",
+  "name": "@chaeyeon/design-system",
   "version": "0.1.0",
   "description": "UI Design System Component Library",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
       "require": "./dist/index.js",

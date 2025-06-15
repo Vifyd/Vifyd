@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { BaseTextProps } from '../types';
+import { TypographyProps } from '../types';
+import { Typography } from '../Typography/Typography';
 
-export type HelperTextProps = BaseTextProps;
+export type HelperTextProps = TypographyProps;
 
-const StyledHelperText = styled.p``;
+const StyledHelperText = styled(Typography)``;
 
 export const HelperText = ({ ...rest }: HelperTextProps) => {
   return <StyledHelperText {...rest}></StyledHelperText>;

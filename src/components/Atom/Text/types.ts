@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-export type BaseTextProps = {
+export type TypographyProps = {
   error?: boolean;
   disabled?: boolean;
 } & HTMLAttributes<HTMLParagraphElement>;

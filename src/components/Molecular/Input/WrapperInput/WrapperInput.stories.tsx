@@ -25,9 +25,6 @@ const meta: Meta<WrapperInputProps> = {
         ),
       },
     },
-    error: {
-      control: 'boolean',
-    },
     placeholder: {
       control: 'text',
     },

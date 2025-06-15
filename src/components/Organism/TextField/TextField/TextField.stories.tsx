@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TokenizedTextField } from './TokenizedTextField';
-import type { TokenizedTextFieldProps } from './TokenizedTextField';
+import { TextField } from './TextField';
+import type { TextFieldProps } from './TextField';
 import { ReactNode } from 'react';
 
-const meta: Meta<TokenizedTextFieldProps> = {
-  title: 'Components/Molecular/TextField/TokenizedTextField',
-  component: TokenizedTextField,
+const meta: Meta<typeof TextField> = {
+  title: 'Components/Organism/TextField/TextField',
+  component: TextField,
   tags: ['autodocs'],
   argTypes: {
     Wrapper: {
@@ -35,8 +35,10 @@ const meta: Meta<TokenizedTextFieldProps> = {
 };
 
 export default meta;
-type Story = StoryObj<TokenizedTextFieldProps>;
+type Story = StoryObj<TextFieldProps>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    error: false,
+  },
 };

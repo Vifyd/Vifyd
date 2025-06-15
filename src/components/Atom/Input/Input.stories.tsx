@@ -7,14 +7,14 @@ const meta: Meta<typeof Input> = {
   component: Input,
   tags: ['autodocs'],
   argTypes: {
-    error: {
-      control: 'boolean',
-    },
     placeholder: {
       control: 'text',
     },
     disabled: {
       control: 'boolean',
+    },
+    value: {
+      control: 'text',
     },
   },
 };
@@ -25,6 +25,5 @@ type Story = StoryObj<InputProps>;
 export const InputTest: Story = {
   args: {
     placeholder: '입력해 주세요',
-    error: false,
   },
 };

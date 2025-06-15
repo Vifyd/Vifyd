@@ -4,7 +4,7 @@ import type { InputHTMLAttributes } from 'react';
 export type InputProps = {
   readOnly?: boolean;
   disabled?: boolean;
-  error?: boolean;
+  value?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const StyledInput = styled.input<InputProps>`

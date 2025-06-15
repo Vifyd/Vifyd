@@ -3,7 +3,7 @@ import { LabelTextField } from './LabelTextField';
 import type { LabelTextFieldProps } from './LabelTextField';
 
 const meta: Meta<LabelTextFieldProps> = {
-  title: 'Components/Molecular/TextField/LabelTextField',
+  title: 'Components/Organism/TextField/LabelTextField',
   component: LabelTextField,
   tags: ['autodocs'],
   argTypes: {},
